@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 //creo un nuevo schema para el modelo de datos del menu
 const menuSchema = mongoose.Schema({
-  day:{
+  dia:{
     type: Number,
     require: true
   },
@@ -24,6 +24,7 @@ const menuSchema = mongoose.Schema({
 
 })
 
-module.exports = mongoose.model("menu", menuSchema);
+module.exports = mongoose.model("mimenu", menuSchema);
 //usando el obj mongoose el modelo del menu
 //estamos exportando el modelo de datos de un tipo de menu
+
