@@ -1,27 +1,23 @@
-const getAllMenu = () => {
+const getAllMenu = (req, res) => {
+  res.send({ list: [1, 2, 3] });
+};
 
-}
+const getOneMenu = (req, res) => {};
 
-const getOneMenu = () => {
+const createdMenu = (req, res) => {};
 
-}
+const updateMenu = (req, res) => {};
 
-const createdMenu = () => {
+const deleteMenu = (req, res) => {};
 
-}
-
-const updateMenu = () => {
-
-}
-
-const deleteMenu = () => {
-
-}
-
-
-module.exports = { getAllMenu, getOneMenu, createdMenu, updateMenu, deleteMenu}
+module.exports = {
+  getAllMenu,
+  getOneMenu,
+  createdMenu,
+  updateMenu,
+  deleteMenu,
+};
 //const menuServices = require("../services/menuServices");
-
 
 /*
 const getAllMenu = (req,res) =>{

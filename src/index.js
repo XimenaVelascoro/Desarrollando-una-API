@@ -17,7 +17,7 @@ app.use (express.json());
 //middleware (prefijo)api va a ser la base de todas mis rutas
 app.use("/src/controllers/menuController.js", menuRoutes);
 
-app.use("/api/1.0/",require("./routes/index"))
+app.use("/api/1.0/",require("./routes/api"))
 
 
 

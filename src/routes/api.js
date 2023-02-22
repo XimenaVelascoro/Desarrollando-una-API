@@ -10,11 +10,12 @@ const {createdMenu} = require("../controllers/menuController");
 const {updateMenu} = require("../controllers/menuController");
 const {deleteMenu} = require("../controllers/menuController");
 
-
+//http:////http://localhost/api/ ----> LISTA
+//apiporque es el nombre de mi archiVO
 router.get("/", getAllMenu)
 
 
-
+//http:////http://localhost/api/:id ----> DETALLE
 router.get("/:id", getOneMenu)
 
 
