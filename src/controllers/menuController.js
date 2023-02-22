@@ -1,4 +1,27 @@
-const menuServices = require("../services/menuServices");
+const getAllMenu = () => {
+
+}
+
+const getOneMenu = () => {
+
+}
+
+const createdMenu = () => {
+
+}
+
+const updateMenu = () => {
+
+}
+
+const deleteMenu = () => {
+
+}
+
+
+module.exports = { getAllMenu, getOneMenu, createdMenu, updateMenu, deleteMenu}
+//const menuServices = require("../services/menuServices");
+
 
 /*
 const getAllMenu = (req,res) =>{

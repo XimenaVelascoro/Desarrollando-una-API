@@ -1,18 +1,23 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-//require("dotenv").config();
-const menuRoutes = require("./routes/menu");
+require("dotenv").config();
+const menuRoutes = require("./routes/api");
 const app = express();
-const port = 3000
+const port = process.env.port || 3000
 //response es la respuesta que le daremos al usuario
 //require es lo que recoguemos del usuario
+const {dbConnect} = require("../config/mongo")
 
+
+app.use(cors())
 app.use (express.json());
 //para que en las pruebas con postman no me salga error 500
 
 //middleware (prefijo)api va a ser la base de todas mis rutas
 app.use("/src/controllers/menuController.js", menuRoutes);
+
+app.use("/api/1.0/",require("./routes/index"))
 
 
 
@@ -25,13 +30,7 @@ app.get("/", (req,res)=>{
 mongoose.set("strictQuery", false)// para desactivar la opción strictQuery ya que esta en deshuso***
 
 //mongodb conection
-mongoose.connect(
-  "mongodb+srv://miAPI:Wn7t4RCKTXrcS4UB@cluster0.q8k7itt.mongodb.net/NutriLunch?retryWrites=true&w=majority")
-  .then(()=> console.log("connected to mongodb atlas"))
-  .catch((error) => console.error("error"));
-//Una promesa para ver que todo salga bn con la conexion
-//y catch para tratar algun error
-
+dbConnect()
 
 //esto siguiente es para que el navegadorsepa que esa es  la puerta que va a empezar a mirar
 app.listen(port, ()=>{
