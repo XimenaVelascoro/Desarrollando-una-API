@@ -1,8 +1,13 @@
 const {httpError} = require("../helpers/handleError");
 const menuModel = require("../models/menu")
 
-const getAllMenu = (req, res) => {
-  res.send({ list: [1, 2, 3] });
+const getAllMenu = async (req, res) => {
+  try{
+    const listAll = await menuModel.find({})
+    res.send({data: listAll })
+  } catch(e) {
+    httpError(res, e)
+  }
 };
 
 const getOneMenu = (req, res) => {};

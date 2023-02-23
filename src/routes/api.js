@@ -12,6 +12,7 @@ const {deleteMenu} = require("../controllers/menuController");
 
 //http:////http://localhost/api/ ----> LISTA
 //apiporque es el nombre de mi archiVO
+
 router.get("/", getAllMenu)
 
 
@@ -33,3 +34,4 @@ router.patch("/:id", deleteMenu)
 
 
 module.exports = router;
+
