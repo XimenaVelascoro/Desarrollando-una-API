@@ -1,10 +1,23 @@
+const {httpError} = require("../helpers/handleError");
+const menuModel = require("../models/menu")
+
 const getAllMenu = (req, res) => {
   res.send({ list: [1, 2, 3] });
 };
 
 const getOneMenu = (req, res) => {};
 
-const createdMenu = (req, res) => {};
+const createdMenu =  async (req, res) => {
+  try{
+    const { dia, proteina, carbohidrato, grasas, verdura} = req.body
+    const resDetail = await menuModel.create({
+      dia, proteina, carbohidrato, grasas, verdura
+    })
+    res.send({data: resDetail })
+  } catch(e) {
+    httpError(res, e)
+  }
+};
 
 const updateMenu = (req, res) => {};
 

@@ -4,7 +4,7 @@ const cors = require("cors");
 require("dotenv").config();
 const menuRoutes = require("./routes/api");
 const app = express();
-const port = process.env.port || 3000
+const port = process.env.port || 3000 //esto es una variable de entorno
 //response es la respuesta que le daremos al usuario
 //require es lo que recoguemos del usuario
 const {dbConnect} = require("../config/mongo")

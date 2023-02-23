@@ -15,7 +15,7 @@ fs.readdirSync(pathRouter).filter((file)=> {
   const fileWithoutExt = removeExtension(file)
   const skip = ["index"].includes(fileWithoutExt)//para saltar los file que sean index
   if (!skip){
-    router.use(`${fileWithoutExt}`, require(`./${fileWithoutExt}`)) //localhost/api
+    router.use(`/${fileWithoutExt}`, require(`./${fileWithoutExt}`)) //localhost/api
     //para que al generar una nueva familia de rutas simplemente se a de crear un file con el nombre
     //le digo a router que haga uso de
     console.log("LOADING RUTE---->", fileWithoutExt)
