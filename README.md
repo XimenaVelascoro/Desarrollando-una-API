@@ -45,7 +45,8 @@ Para el desarrollo de este trabajo mi fuente de información la obtuve de los si
 - https://www.youtube.com/watch?v=S4IgPTwwPBw
 - Pero sobretodo de este :point_down:
 - https://www.youtube.com/watch?v=lf-L9IEdo9E
-
+- Si aún no sabes que Status Code te invito a ver el siguiente link
+- https://http.cat/
 
 
 ## CARPETAS Y SU ORGANIZACIÓN
