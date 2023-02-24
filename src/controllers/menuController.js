@@ -1,16 +1,27 @@
 const {httpError} = require("../helpers/handleError");
 const menuModel = require("../models/menu")
 
+
 const getAllMenu = async (req, res) => {
   try{
     const listAll = await menuModel.find({})
     res.send({data: listAll })
   } catch(e) {
-    httpError(res, e)
+    res.status(500)
+    res.sen('Algo paso')
   }
 };
 
-const getOneMenu = (req, res) => {};
+const getOneMenu = async(req, res) => {
+
+  try {
+    const one = await menuModel.findById(req.params.id);
+    res.status(200).json(one);
+} catch (e) {
+    res.status(500)
+    res.send({ error: 'Algo paso' })
+}
+};
 
 const createdMenu =  async (req, res) => {
   try{
@@ -24,9 +35,27 @@ const createdMenu =  async (req, res) => {
   }
 };
 
-const updateMenu = (req, res) => {};
+const updateMenu = async (req, res) => {
+  try {
+    const resUpdate = await menuModel.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true });
+    res.status(200).json(resUpdate);
+  } catch (e) {
+    res.status(500)
+    res.send({ error: 'Algo ocurrio' })
+  }
+  return false;
+};
 
-const deleteMenu = (req, res) => {};
+const deleteMenu = async (req, res) => {
+  try {
+    const resDetail = await menuModel.findOneAndRemove({ _id: req.body.id });
+    res.status(200);
+    res.send("Se logro Eliminar");
+} catch (e) {
+    res.status(500)
+    res.send({ error: 'Algo paso' })
+}
+};
 
 module.exports = {
   getAllMenu,
@@ -35,45 +64,4 @@ module.exports = {
   updateMenu,
   deleteMenu,
 };
-//const menuServices = require("../services/menuServices");
 
-/*
-const getAllMenu = (req,res) =>{
-  const allMenu = menuServices.getAllMenu();
-  res.send({status: "ok", data: allMenu});
-};
-
-
-const getOneMenu = (req, res) =>{
-  const menu = menuServices.getOneMenu(req.params.menuId);
-  res.send(`Get menu ${req.params.menuId}`)
-};
-
-const createNewMenu = (req,res) => {
-  const {body} = req;
-
-  if (
-    !body.dia ||
-    !body.proteina ||
-    !body.carbohidratos ||
-    !body.grasas ||
-    !body.verdura ||
-  )
-   {
-    return
-  }
-
-  const newMenu = {
-    dia: body.dia,
-    proteina: body.proteina,
-    carbohidratos: body.carbohidratos,
-    grasas: body.grasas,
-    verdura: body.verdura
-  };
-
-  const createdMenu = menuServices.createNewMenu(newMenu);
-  res.status(201).send({status: "ok", data: createdMenu});
-
-
-}
-*/

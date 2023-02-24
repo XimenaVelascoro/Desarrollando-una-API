@@ -11,6 +11,7 @@ const {getOneMenu} = require("../controllers/menuController");
 const {createdMenu} = require("../controllers/menuController");
 const {updateMenu} = require("../controllers/menuController");
 const {deleteMenu} = require("../controllers/menuController");
+const checkOrigin = require("../middleware/origin");
 
 //http:////http://localhost/api/1.0/menu----> LISTA
 //apiporque es el nombre de mi archiVO
@@ -23,7 +24,7 @@ router.get("/:id",  getOneMenu)
 
 
 //con una prueba verificamos que se muestre el cambio en postman en la consola de visual y SI
-router.post("/", createdMenu)
+router.post("/", checkOrigin, createdMenu)
 
 
 
