@@ -4,7 +4,7 @@
  //res del express y argumento de error
 const httpError =(res, err) =>{
   console.log(err)
-  res.status(500)
+  res.status(500)//STATUS CO0DE
   res.send({error: 'Algo ocurrio'})
 }
 //cuando llame a la funcion me responda un status eje 500

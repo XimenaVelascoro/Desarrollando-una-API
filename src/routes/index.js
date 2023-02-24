@@ -24,7 +24,7 @@ fs.readdirSync(pathRouter).filter((file)=> {
 })
 
 router.get("*", (req,res) =>{
-  req.status(404)
+  req.status(404)//STATUS CODE
   res.send({error:"Not Found"})
 })
 
